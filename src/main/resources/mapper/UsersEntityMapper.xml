@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tqktqk.work.problemreportingsystem.dao.UsersMapper">
+
+    <select id="selectUserInfoByUserId"
+            resultType="cn.tqktqk.work.problemreportingsystem.model.result.UserInfoResult">
+        select a.id id,a.username username,a.nickname nickname,c.id departmentsId,c.name departmentsName
+        from users a
+        inner join user_department b
+        on a.id = b.user_id
+        inner join departments c
+        on b.department_id = c.id
+        where a.id=#{userId} and a.deleted=1
+    </select>
+    <update id="updateNickname">
+        update users set `nickname`=#{nickname} where `deleted`=1 and `id`=#{userId}
+    </update>
+</mapper>

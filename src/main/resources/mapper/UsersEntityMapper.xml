@@ -15,4 +15,7 @@
     <update id="updateNickname">
         update users set `nickname`=#{nickname} where `deleted`=1 and `id`=#{userId}
     </update>
+    <update id="updatePassword">
+        update users set `password`=#{password} where `deleted`=1 and `id`=#{userId}
+    </update>
 </mapper>

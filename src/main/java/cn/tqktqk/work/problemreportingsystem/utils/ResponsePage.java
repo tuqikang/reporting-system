@@ -71,13 +71,13 @@ public class ResponsePage<T> implements Serializable {
         return response;
     }
 
-    public static ResponsePage success(List<Object> data) {
+    public static ResponsePage success(List data) {
         ResponsePage response = success();
         response.data = data;
         return response;
     }
 
-    public static ResponsePage success(List<Object> data,long count,long pages) {
+    public static ResponsePage success(List data,long count,long pages) {
         ResponsePage response = success();
         response.data = data;
         response.count = count;
@@ -93,7 +93,7 @@ public class ResponsePage<T> implements Serializable {
         return response;
     }
 
-    public static ResponsePage fail(ResponseEnum responseEnum, List<Object> data) {
+    public static ResponsePage fail(ResponseEnum responseEnum, List data) {
         ResponsePage response = fail(responseEnum);
         response.setData(data);
         return response;

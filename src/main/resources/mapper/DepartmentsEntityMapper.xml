@@ -2,4 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tqktqk.work.problemreportingsystem.dao.DepartmentsMapper">
 
+    <select id="select" resultType="cn.tqktqk.work.problemreportingsystem.model.result.DepartmentResult">
+        select `id`,`name` from departments where `deleted`=1 order by `id`
+    </select>
 </mapper>

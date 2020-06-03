@@ -18,4 +18,6 @@ public interface UsersMapper extends BaseMapper<UsersEntity> {
     UserInfoResult selectUserInfoByUserId(@Param("userId") Long userId);
 
     int updateNickname(@Param("userId") Long userId, @Param("nickname") String nickname);
+
+    int updatePassword(@Param("userId") Long userId, @Param("password") String password);
 }

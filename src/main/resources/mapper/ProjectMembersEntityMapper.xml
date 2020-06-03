@@ -2,4 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tqktqk.work.problemreportingsystem.dao.ProjectMembersMapper">
 
+    <select id="selectGroupIdByUserId" resultType="java.lang.Long">
+        select `group_id` from project_members where `deleted`=1 and `user_id`=#{userId}
+    </select>
+    <select id="selectByMemberStoreVo"
+            resultType="cn.tqktqk.work.problemreportingsystem.model.entity.ProjectMembersEntity">
+        select * from project_members where `deleted`=1 and `user_id`=#{vo.targetId}  and `group_id`=#{vo.groupId}
+    </select>
+    <select id="selectUserIdsByGroupId" resultType="java.lang.Long">
+        select `user_id` from project_members where `deleted`=1 and `group_id`=#{groupId}
+    </select>
 </mapper>

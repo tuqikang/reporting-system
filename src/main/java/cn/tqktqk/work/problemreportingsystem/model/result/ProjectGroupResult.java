@@ -1,10 +1,12 @@
-package cn.tqktqk.work.problemreportingsystem.model.vo;
+package cn.tqktqk.work.problemreportingsystem.model.result;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 /**
  * █████▒█      ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
@@ -17,27 +19,26 @@ import lombok.NoArgsConstructor;
  * ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
  * ░     ░ ░      ░  ░
  *
- * @Classname UserRegisterVo
+ * @Classname ProjectGroupResult
  * @Description TODO
- * @Date 2020/6/3 3:35 下午
+ * @Date 2020/6/3 6:39 下午
  * @Author 麦麦麦阁
  */
-@ApiModel("用户注册信息集")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRegisterVo {
+@ApiModel("项目组信息结果")
+public class ProjectGroupResult {
 
-    @ApiModelProperty("账号")
-    private String username;
+    @ApiModelProperty(value = "项目组id")
+    private Long id;
 
-    @ApiModelProperty("密码")
-    private String password;
+    @ApiModelProperty(value = "名称")
+    private String name;
 
-    @ApiModelProperty("昵称")
-    private String nickname;
+    @ApiModelProperty(value = "领导人")
+    private String leader;
 
-    @ApiModelProperty("部门id")
-    private Long departmentsId;
-
+    @ApiModelProperty(value = "创建时间")
+    private LocalDateTime createTime;
 }

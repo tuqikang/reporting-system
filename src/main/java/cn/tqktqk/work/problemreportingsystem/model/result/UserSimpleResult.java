@@ -1,4 +1,4 @@
-package cn.tqktqk.work.problemreportingsystem.model.vo;
+package cn.tqktqk.work.problemreportingsystem.model.result;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -17,27 +17,21 @@ import lombok.NoArgsConstructor;
  * ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
  * ░     ░ ░      ░  ░
  *
- * @Classname UserRegisterVo
+ * @Classname UserSimpleResult
  * @Description TODO
- * @Date 2020/6/3 3:35 下午
+ * @Date 2020/6/3 7:04 下午
  * @Author 麦麦麦阁
  */
-@ApiModel("用户注册信息集")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRegisterVo {
+@ApiModel("用户简单信息结果")
+public class UserSimpleResult {
 
-    @ApiModelProperty("账号")
-    private String username;
-
-    @ApiModelProperty("密码")
-    private String password;
+    @ApiModelProperty("用户id")
+    private Long id;
 
     @ApiModelProperty("昵称")
     private String nickname;
-
-    @ApiModelProperty("部门id")
-    private Long departmentsId;
 
 }

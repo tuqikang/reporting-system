@@ -1,6 +1,7 @@
 package cn.tqktqk.work.problemreportingsystem.controller;
 
 import cn.tqktqk.work.problemreportingsystem.model.result.DepartmentResult;
+import cn.tqktqk.work.problemreportingsystem.model.result.UserSimpleResult;
 import cn.tqktqk.work.problemreportingsystem.service.DepartmentService;
 import cn.tqktqk.work.problemreportingsystem.utils.Response;
 import cn.tqktqk.work.problemreportingsystem.utils.ResponsePage;
@@ -39,6 +40,12 @@ public class DepartmentManageController {
     @ApiOperation("获取部门列表")
     public ResponsePage<DepartmentResult> select(){
         return departmentService.select();
+    }
+
+    @GetMapping("{department}")
+    @ApiOperation("获取部门人员列表")
+    public ResponsePage<UserSimpleResult> selectForDepartment(@PathVariable("department") Long department){
+        return departmentService.selectForDepartment(department);
     }
 
     @PostMapping

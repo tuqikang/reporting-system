@@ -2,4 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tqktqk.work.problemreportingsystem.dao.ProjectGroupsMapper">
 
+    <select id="selectProjectGroupResults"
+            resultType="cn.tqktqk.work.problemreportingsystem.model.result.ProjectGroupResult">
+        select a.id id,a.name name,b.nickname leader,a.create_time createTime
+        from project_groups a
+        inner join users b
+        on a.leader_id= b.id
+        where a.deleted=1
+        and a.id in
+        <foreach collection="groupIds" item="item" index="index" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </select>
+    <select id="selectProjectGroupResultsByUserId"
+            resultType="cn.tqktqk.work.problemreportingsystem.model.result.ProjectGroupResult">
+        select a.id id,a.name name,b.nickname leader,a.create_time createTime
+        from project_groups a
+        inner join users b
+        on a.leader_id= b.id
+        where a.deleted=1
+        and a.leader_id = #{userId}
+    </select>
 </mapper>

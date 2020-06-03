@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
  * @Date 2020/6/3 4:17 下午
  * @Author 麦麦麦阁
  */
-@ApiModel("密码修改信息")
+@ApiModel("密码修改信息集")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

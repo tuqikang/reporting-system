@@ -1,10 +1,12 @@
 package cn.tqktqk.work.problemreportingsystem.service;
 
 import cn.tqktqk.work.problemreportingsystem.dao.DepartmentsMapper;
+import cn.tqktqk.work.problemreportingsystem.dao.UsersMapper;
 import cn.tqktqk.work.problemreportingsystem.exceptions.ServerException;
 import cn.tqktqk.work.problemreportingsystem.model.entity.DepartmentsEntity;
 import cn.tqktqk.work.problemreportingsystem.model.enums.ResponseEnum;
 import cn.tqktqk.work.problemreportingsystem.model.result.DepartmentResult;
+import cn.tqktqk.work.problemreportingsystem.model.result.UserSimpleResult;
 import cn.tqktqk.work.problemreportingsystem.utils.Response;
 import cn.tqktqk.work.problemreportingsystem.utils.ResponsePage;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -35,9 +37,12 @@ public class DepartmentService {
     @Autowired
     private DepartmentsMapper departmentsMapper;
 
+    @Autowired
+    private UsersMapper usersMapper;
+
     public ResponsePage<DepartmentResult> select() {
         List<DepartmentResult> results = departmentsMapper.select();
-        return ResponsePage.success(results);
+        return ResponsePage.success(results,results.size(),1L);
     }
 
     public Response store(String name) {
@@ -53,5 +58,10 @@ public class DepartmentService {
     public Response deleted(Long id) {
         departmentsMapper.deleteById(id);
         return Response.success();
+    }
+
+    public ResponsePage<UserSimpleResult> selectForDepartment(Long department) {
+        List<UserSimpleResult> results = usersMapper.selectUserSimpleResultsByDepId(department);
+        return ResponsePage.success(results,results.size(),1L);
     }
 }

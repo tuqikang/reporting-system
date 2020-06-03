@@ -17,27 +17,23 @@ import lombok.NoArgsConstructor;
  * ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
  * ░     ░ ░      ░  ░
  *
- * @Classname UserRegisterVo
+ * @Classname MemberStoreVO
  * @Description TODO
- * @Date 2020/6/3 3:35 下午
+ * @Date 2020/6/3 6:52 下午
  * @Author 麦麦麦阁
  */
-@ApiModel("用户注册信息集")
+@ApiModel("成员插入信息集")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRegisterVo {
+public class MemberStoreVo {
 
-    @ApiModelProperty("账号")
-    private String username;
+    @ApiModelProperty("项目组id")
+    private Long groupId;
 
-    @ApiModelProperty("密码")
-    private String password;
+    @ApiModelProperty("用户id")
+    private Long userId;
 
-    @ApiModelProperty("昵称")
-    private String nickname;
-
-    @ApiModelProperty("部门id")
-    private Long departmentsId;
-
+    @ApiModelProperty("新增成员id")
+    private Long targetId;
 }

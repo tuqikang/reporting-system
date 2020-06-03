@@ -25,7 +25,8 @@ public enum ResponseEnum {
     USER_NOT_EXIST(1,"用户不存在"),
     USER_IS_EXISTS(2,"用户已存在"),
     DATA_IS_NULL(3,"数据为空"),
-    GROUP_NOT_EXISTS(69,"项目组不存在"),
+    GROUP_NOT_EXISTS(59,"项目组不存在"),
+    GROUP_IS_EXISTS(69,"项目组名称已存在"),
     FORM_NOT_EXISTS(79,"表单不完整"),
     CUSTOM(1111,"自定义信息");
 

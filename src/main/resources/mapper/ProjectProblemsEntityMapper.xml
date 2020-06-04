@@ -2,4 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tqktqk.work.problemreportingsystem.dao.ProjectProblemsMapper">
 
+    <select id="selectProblemsResults"
+            resultType="cn.tqktqk.work.problemreportingsystem.model.result.ProblemsResult">
+        select `id`,`group_id`,`user_id`,`content`,`status`,`level`,`finish_id`,`finish_time`,`create_time`,`department_id`
+        from project_problems
+        where deleted=1
+        <if test="level!=0">
+            and `level`=#{level}
+        </if>
+        <if test="status!=0">
+            and `status`=#{status}
+        </if>
+        <if test="department!=0">
+            and `department_id`=#{department}
+        </if>
+    </select>
+    <insert id="insertVo">
+        insert into project_problems (`group_id`,`user_id`,`content`,`level`,`department_id`)
+        values (#{groupId},#{vo.userId},#{vo.content},#{vo.level},#{vo.department})
+    </insert>
 </mapper>

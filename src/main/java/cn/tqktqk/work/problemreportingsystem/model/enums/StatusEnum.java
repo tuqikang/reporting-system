@@ -48,10 +48,10 @@ public enum StatusEnum {
         throw new ServerException(ResponseEnum.FAIL);
     }
 
-    public static String getMsgByStatus(Integer level) {
+    public static String getMsgByStatus(Integer status) {
         StatusEnum[] values = StatusEnum.values();
         for (StatusEnum value : values) {
-            if (value.getStatus() - level == 0) {
+            if (value.getStatus() - status == 0) {
                 return value.msg;
             }
         }

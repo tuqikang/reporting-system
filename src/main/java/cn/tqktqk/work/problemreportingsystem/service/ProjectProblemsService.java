@@ -13,6 +13,7 @@ import cn.tqktqk.work.problemreportingsystem.model.enums.StatusEnum;
 import cn.tqktqk.work.problemreportingsystem.model.result.DepartmentResult;
 import cn.tqktqk.work.problemreportingsystem.model.result.ProblemsResult;
 import cn.tqktqk.work.problemreportingsystem.model.vo.ProblemVo;
+import cn.tqktqk.work.problemreportingsystem.utils.FormUtils;
 import cn.tqktqk.work.problemreportingsystem.utils.Response;
 import cn.tqktqk.work.problemreportingsystem.utils.ResponsePage;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -94,6 +95,9 @@ public class ProjectProblemsService {
     }
 
     public Response store(Long groupId, ProblemVo vo) {
+        if (FormUtils.beanFormHaveNull(vo)) {
+            throw new ServerException(ResponseEnum.FORM_NOT_EXISTS);
+        }
         //首先判断该用户是否是该项目组的成员
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("user_id",vo.getUserId());
